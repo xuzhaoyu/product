@@ -3,10 +3,18 @@
 
 @section('content')
 
-Friend Lists <br>
 <?php
-    echo $user;
+    echo 'Friend Lists:';
+
+foreach ($users as $item) {
+
+    print_r($item['name']);
+    echo ',';
+    print_r($item['distance']);
+    echo '|';
+
+}
+    echo '<br>';
 ?>
-<br>
 
 @stop
