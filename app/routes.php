@@ -83,6 +83,16 @@ Route::group(array('before' => 'auth'), function() {
         'uses' => 'FriendController@getFriend'
     ));
 
+    Route::get('/profile/get-photo', array(
+        'as' => 'profile-get-photo',
+        'uses' => 'PhotoController@getPhoto'
+    ));
+
+    Route::get('/profile/get-info/{id}', array(
+        'as' => 'profile-get-info',
+        'uses' => 'FriendController@getProfileInfo'
+    ));
+
     Route::group(array('before' => 'csrf'), function(){
 
         Route::post('/account/change-password', array(

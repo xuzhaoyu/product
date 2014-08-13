@@ -33,8 +33,9 @@ class GeoController extends BaseController {
             $c = 2 * atan2( sqrt($a), sqrt(1-$a) );
 
             $dist = $R * $c;
-            $user_distance[] = array('name' => $user->username,
-                'distance' => $dist);
+            $user_distance[] = array('name' => $user->username, 'distance' => $dist,
+                'degree' => $user->degree, 'year' => $user->graduate_year,
+                'field' => $user->field, 'id' => $user->id);
         }
 
         return View::make('geo.nearby') -> with('users', $user_distance);
